@@ -26,11 +26,13 @@ class _FormularioScreenState extends State<FormularioScreen> {
   final TextEditingController _nombreController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _telefonoController = TextEditingController();
+  final TextEditingController _direccionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Formulario Flutter porGeoffrey Struss')),
+      appBar: AppBar(title: Text('Formulario Flutter por Geoffrey Struss')),
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Form(
@@ -69,6 +71,31 @@ class _FormularioScreenState extends State<FormularioScreen> {
                 validator: (value) {
                   if (value == null || value.length < 6) {
                     return 'La contraseña debe tener al menos 6 caracteres';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _telefonoController,
+                decoration: InputDecoration(labelText: 'Teléfono'),
+                keyboardType: TextInputType.phone,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Ingrese su teléfono';
+                  } else if (!RegExp(r'^\+?[0-9]{7,15}$').hasMatch(value)) {
+                    return 'Ingrese un número de teléfono válido';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 10),
+              TextFormField(
+                controller: _direccionController,
+                decoration: InputDecoration(labelText: 'Dirección'),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Ingrese su dirección';
                   }
                   return null;
                 },
