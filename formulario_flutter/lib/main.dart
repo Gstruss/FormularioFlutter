@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue, // Color de fondo del botón
+            backgroundColor: Colors.red, // Color de fondo del botón
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30), // Bordes redondeados
             ),
